@@ -1,0 +1,35 @@
+<#import "../layout/defaultLayout.ftl.html" as layout> 
+<@layout.myLayout "Home page">    
+
+
+    <h1>${album.getPath()}</h1>
+
+    <#if album.albums?size gt 0>
+        <h2>Sub albums:</h2>
+        <ul>
+        <#list album.albums as subalbum>
+            <li>
+                <a href="${reverseRoute("controllers.PhotoController", "album", "path", subalbum.getPath())}">
+                    ${subalbum.getName()}
+                </a>
+            </li>
+        </#list>
+        </ul>
+    </#if>
+
+    <#if album.pictures?size gt 0>
+        <h2>Picture:</h2>
+        <ul>
+            <#list album.pictures as picture>
+                <li>
+                    <a href="${reverseRoute("controllers.PhotoController", "picture", "path", picture.getPath())}">
+                    ${picture.getName()}
+                    </a>
+                </li>
+            </#list>
+        </ul>
+    </#if>
+
+
+
+</@layout.myLayout>

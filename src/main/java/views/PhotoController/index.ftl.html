@@ -1,0 +1,21 @@
+<#import "../layout/defaultLayout.ftl.html" as layout> 
+<@layout.myLayout "Home page">    
+
+
+    <h1>Welcome to FabPhab</h1>
+    <p>This is a simple photo album system. Basically, it scans some directory and shows photo's.</p>
+
+    <h2>Albums:</h2>
+    <ul>
+    <#list albums as album>
+        <li>
+            <a href="${reverseRoute("controllers.PhotoController", "album", "path", album.getPath())}">
+                ${album.getName()}
+            </a>
+        </li>
+    </#list>
+    </ul>
+
+
+
+</@layout.myLayout>
