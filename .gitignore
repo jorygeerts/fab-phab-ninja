@@ -1,2 +1,10 @@
+
+# Maven compiled dependencies
 dependency-reduced-pom.xml
+
+# Maven build data
+target
+
+# IntelliJ IDEA stuff
 fabpab.iml
+.idea
