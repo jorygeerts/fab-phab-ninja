@@ -2,9 +2,6 @@ package filters;
 
 import ninja.*;
 
-/**
- * Created by jgeerts on 5-8-15.
- */
 public class SecureFilter  implements Filter
 {
 

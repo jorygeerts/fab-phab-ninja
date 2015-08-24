@@ -5,9 +5,6 @@ import ninja.Filter;
 import ninja.FilterChain;
 import ninja.Result;
 
-/**
- * Created by jgeerts on 5-8-15.
- */
 public class LoggingFilter implements Filter {
 
     @Override

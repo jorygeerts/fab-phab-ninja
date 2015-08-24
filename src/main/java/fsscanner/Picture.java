@@ -2,9 +2,6 @@ package fsscanner;
 
 import java.util.ArrayList;
 
-/**
- * Created by jgeerts on 6/2/14.
- */
 public class Picture {
 
     protected Album album;

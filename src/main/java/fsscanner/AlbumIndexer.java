@@ -14,9 +14,6 @@ import java.io.IOException;
 import java.util.*;
 import java.util.regex.Pattern;
 
-/**
- * Created by jgeerts on 6/2/14.
- */
 public class AlbumIndexer
 {
     protected String rootDirectory;

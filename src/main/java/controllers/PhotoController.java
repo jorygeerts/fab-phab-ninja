@@ -18,9 +18,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-/**
- * Created by jgeerts on 19-8-15.
- */
+
 @Singleton
 public class PhotoController {
 
