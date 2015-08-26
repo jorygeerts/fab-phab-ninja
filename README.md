@@ -14,5 +14,5 @@ To try it out, you need Java 1.7 and Maven 3.1. If you have those:
  - Persist data (MongoDB most likely)
  - Authentication (a bit like Flickr their "Guest Pass", but better)
  - Structure by tags and "tag groups"
- - Make directory "just another path". (Maybe?)
+ - Make directory "just another tag". (Maybe?)
  - Editable tags (only in DB, or write into file?)
