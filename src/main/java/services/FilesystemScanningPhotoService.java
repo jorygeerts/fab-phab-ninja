@@ -1,11 +1,13 @@
 package services;
 
+import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import fsscanner.Album;
 import fsscanner.AlbumIndexer;
 import fsscanner.Picture;
 import ninja.lifecycle.Start;
 import ninja.scheduler.Schedule;
+import ninja.utils.NinjaProperties;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -18,6 +20,9 @@ import java.util.concurrent.TimeUnit;
 @Singleton
 public class FilesystemScanningPhotoService implements PhotoService
 {
+    @Inject
+    NinjaProperties ninjaProperties;
+
     @Override
     public Album getAlbumByPath(String path) {
         return getAlbumInListByPath(getAlbums(), path);
@@ -53,7 +58,7 @@ public class FilesystemScanningPhotoService implements PhotoService
     public ArrayList<Album> getAlbums() {
         if (albums == null) {
             System.out.println("SCAN DIRECTORY NOW!");
-            AlbumIndexer indexer = new AlbumIndexer("/home/jgeerts/Afbeeldingen/Prive");
+            AlbumIndexer indexer = new AlbumIndexer(ninjaProperties.get("photo_root"));
             System.out.println("SCAN DONE!");
             //AlbumIndexer indexer = new AlbumIndexer("/home/jgeerts/Afbeeldingen/Scouting/2004");
             albums = indexer.getAlbums();
@@ -93,7 +98,7 @@ public class FilesystemScanningPhotoService implements PhotoService
         return null;
     }
 
-    @Schedule(initialDelay = 5, timeUnit = TimeUnit.SECONDS, delay = 86400)
+    @Schedule(initialDelay = 0, timeUnit = TimeUnit.HOURS, delay = 1)
     public void startService()
     {
         getAlbums();
