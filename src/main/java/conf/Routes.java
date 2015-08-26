@@ -21,18 +21,11 @@ import controllers.PhotoController;
 import ninja.AssetsController;
 import ninja.Router;
 import ninja.application.ApplicationRoutes;
-import controllers.ApplicationController;
 
 public class Routes implements ApplicationRoutes {
 
     @Override
-    public void init(Router router) {  
-        
-        /*
-        router.GET().route("/hello_world.json").with(ApplicationController.class, "helloWorldJson");
-        router.GET().route("/hello/{name}").with(ApplicationController.class, "helloName");
-        router.GET().route("/secure").with(ApplicationController.class, "helloSecure");
-        */
+    public void init(Router router) {
 
         router.GET().route("/picture/{path: .*}").with(PhotoController.class, "picture");
         router.GET().route("/album/{path: .*}").with(PhotoController.class, "album");

@@ -18,29 +18,15 @@ package conf;
 
 import com.google.inject.AbstractModule;
 import com.google.inject.Singleton;
-import ninja.UsernamePasswordValidator;
-import ninja.metrics.MetricsModule;
-import services.GreetingService;
-import services.SimpleGreetingService;
+import services.FilesystemScanningPhotoService;
+import services.PhotoService;
 
 @Singleton
 public class Module extends AbstractModule {
 
     @Override
     protected void configure() {
-
-        // bind a UsernamePasswordValidator
-        bind(UsernamePasswordValidator.class).toInstance(new UsernamePasswordValidator() {
-
-            @Override
-            public boolean validateCredentials(String username, String password) {
-                return "user".equals(username) && "password".equals(password);
-            }
-        });
-
-        bind(GreetingService.class).to(SimpleGreetingService.class);
-
-        install(new MetricsModule());
+        bind(PhotoService.class).to(FilesystemScanningPhotoService.class);
     }
 
 }
