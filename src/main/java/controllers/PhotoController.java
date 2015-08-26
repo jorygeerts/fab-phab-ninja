@@ -2,9 +2,11 @@ package controllers;
 
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import filters.PhotoServiceReadyFilter;
 import fsscanner.Album;
 import fsscanner.AlbumIndexer;
 import fsscanner.Picture;
+import ninja.FilterWith;
 import ninja.Result;
 import ninja.Results;
 import ninja.params.PathParam;
@@ -22,6 +24,7 @@ import java.util.Arrays;
 
 
 @Singleton
+@FilterWith(PhotoServiceReadyFilter.class)
 public class PhotoController {
 
     @Inject
@@ -67,6 +70,11 @@ public class PhotoController {
         } catch (IOException exc) {
             return Results.notFound();
         }
+    }
+
+    public Result thumbnail(@PathParam("photo") String photo, @PathParam("type") String type)
+    {
+        return Results.notFound();
     }
 
 

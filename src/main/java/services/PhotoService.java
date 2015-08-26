@@ -13,5 +13,6 @@ public interface PhotoService {
     public Album getAlbumByPath(String path);
     public Picture getPictureByPath(String path);
     public ArrayList<Album> getAlbums();
+    public boolean isReady();
 
 }
