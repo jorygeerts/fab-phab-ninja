@@ -5,7 +5,7 @@ Mostly an experiment, the main goal is to have some fun.
 
 ## Trying it out
 To try it out, you need Java 1.7 and Maven 3.1. If you have those:
- - Change src/main/java/controllers/PhotoController.java#L29 to point to a directory with pictures on your PC
+ - Change "photo_root" in "application.conf" to point to a directory with pictures on your PC
  - mvn clean install
  - mvn ninja:run
 
